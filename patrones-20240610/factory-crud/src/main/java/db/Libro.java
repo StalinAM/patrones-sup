@@ -1,12 +1,12 @@
 package db;
 
-public class Libros {
+public class Libro {
 
 	private int id;
 	private String titulo;
 	private String isbn;
 
-	public Libros() {
+	public Libro() {
 		
 	}
 

@@ -6,7 +6,7 @@ import java.util.List;
 import com.patrones.DbConfig;
 import com.patrones.factory.anotaciones.MiComponente;
 
-import db.Libros;
+import db.Libro;
 
 @MiComponente(name = "ServiciosLibros", singleton = true)
 public class ServiciosLibrosImpl implements ServiciosLibros {
@@ -18,7 +18,7 @@ public class ServiciosLibrosImpl implements ServiciosLibros {
 	}
 
 	@Override
-	public Libros buscarPorId(Integer id) {
+	public Libro buscarPorId(Integer id) {
 		try {
 			var con = dbConfig.getConnection();
 			var pstmt = con.prepareStatement("SELECT * FROM libros WHERE id=?");
@@ -26,7 +26,7 @@ public class ServiciosLibrosImpl implements ServiciosLibros {
 			var rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				Libros ret = new Libros();
+				Libro ret = new Libro();
 
 				ret.setTitulo(rs.getString("titulo"));
 				ret.setIsbn(rs.getString("isbn"));
@@ -42,16 +42,16 @@ public class ServiciosLibrosImpl implements ServiciosLibros {
 	}
 
 	@Override
-	public List<Libros> listarTodos() {
+	public List<Libro> listarTodos() {
 		// TODO Auto-generated method stub
-		List<Libros> librosList = new ArrayList<>();
+		List<Libro> librosList = new ArrayList<>();
 		try {
 			var con = dbConfig.getConnection();
 			var pstmt = con.prepareStatement("SELECT * FROM libros");
 			var rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				Libros libro = new Libros();
+				Libro libro = new Libro();
 				libro.setId(rs.getInt("id"));
 				libro.setTitulo(rs.getString("titulo"));
 				libro.setIsbn(rs.getString("isbn"));
@@ -65,7 +65,7 @@ public class ServiciosLibrosImpl implements ServiciosLibros {
 	}
 
 	@Override
-	public void crear(Libros obj) {
+	public void crear(Libro obj) {
 		// TODO Auto-generated method stub
 		try {
 			var con = dbConfig.getConnection();
@@ -91,7 +91,7 @@ public class ServiciosLibrosImpl implements ServiciosLibros {
 	}
 
 	@Override
-	public void actualizar(Libros obj) {
+	public void actualizar(Libro obj) {
 		// TODO Auto-generated method stub
 		try {
 			var con = dbConfig.getConnection();

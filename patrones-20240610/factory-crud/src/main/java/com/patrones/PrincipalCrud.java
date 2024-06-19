@@ -6,7 +6,7 @@ import com.patrones.servicios.ServiciosLibros;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
-import db.Libros;
+import db.Libro;
 
 public class PrincipalCrud {
 
@@ -19,7 +19,7 @@ public class PrincipalCrud {
 
 		servicio.setDbConfig(dbConfig);
 
-		Libros libro = new Libros();
+		Libro libro = new Libro();
 		// BUSCAR
 //		 var libro1 = servicio.buscarPorId(2);
 //		 System.out.println(libro1.getTitulo());

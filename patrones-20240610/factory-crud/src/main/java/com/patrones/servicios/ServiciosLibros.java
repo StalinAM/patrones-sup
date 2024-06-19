@@ -4,15 +4,15 @@ import java.util.List;
 
 import com.patrones.DbConfig;
 
-import db.Libros;
+import db.Libro;
 
 public interface ServiciosLibros {
 	public void setDbConfig(DbConfig dbConfig);
 	
 	//CRUD
-	public Libros buscarPorId(Integer id);//C
-	public List<Libros> listarTodos();//R
-	public void crear (Libros obj);//R
-	public void actualizar (Libros obj);//U
+	public Libro buscarPorId(Integer id);//C
+	public List<Libro> listarTodos();//R
+	public void crear (Libro obj);//R
+	public void actualizar (Libro obj);//U
 	public void eliminarPorId(Integer id);//D
 }
